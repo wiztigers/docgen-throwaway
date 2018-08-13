@@ -1,13 +1,16 @@
 sudo: required
 
+env:
+  - stylename="SR54"
+
 before_install:
   - git clone https://github.com/wiztigers/docgen.git docgen
   - chmod +x docgen/setup.sh docgen/docgen.py
-  - ./docgen/setup.sh sass SR54
+  - ./docgen/setup.sh sass ${stylename}
 
 script:
-  - ./docgen/docgen.py --html --input book.adoc  --output index.html --outdir gh-pages --stylename SR54 --stylesdir sass --linkstyle
-  - ./docgen/docgen.py --pdf  --input index.html --output book.pdf   --outdir gh-pages
+  - ./docgen/docgen.py --html --input book.adoc  --output index.html --outdir gh-pages --stylename ${stylename} --stylesdir sass --linkstyle
+  - ./docgen/docgen.py --pdf  --input gh-pages/index.html --output book.pdf   --outdir gh-pages
 
 # https://docs.travis-ci.com/user/deployment/pages/
 deploy:
