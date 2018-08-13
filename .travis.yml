@@ -2,6 +2,7 @@ sudo: required
 
 before_install:
   - git clone https://github.com/wiztigers/docgen.git docgen
+  - chmod +x docgen/setup.sh docgen/docgen.py
   - ./docgen/setup.sh sass
 
 script:
