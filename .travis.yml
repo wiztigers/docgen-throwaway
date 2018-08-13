@@ -15,5 +15,8 @@ script:
   - AUTHOR_EMAIL="$(git log -1 $TRAVIS_COMMIT --pretty="%aE")"
   - cd gh-pages; git config user.name "traviscibot"; git config user.email "deploy@travis-ci.org"
   - git add .; git commit --author="${AUTHOR_NAME} <${AUTHOR_EMAIL}>" -m "Deploy ${TRAVIS_COMMIT_RANGE} to github pages"
+  - pwd
+  - echo ${AUTHOR_NAME} ${AUTHOR_EMAIL}
+  - echo ${TRAVIS_REPO_SLUG}
   - git push --quiet "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}" gh-pages > /dev/null 2>&1
   - cd ..
