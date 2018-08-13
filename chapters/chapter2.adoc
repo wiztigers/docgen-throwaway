@@ -6,5 +6,9 @@ What about a little more blah blah ?
 
 === Section B
 
-And then some blah blah to end this.
+And then some blah blah to finish this.
+
+=== Section C
+
+And then some blah blah to _really_ end this.
 
