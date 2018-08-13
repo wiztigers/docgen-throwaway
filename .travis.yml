@@ -11,4 +11,9 @@ before_install:
 script:
   - ./docgen/docgen.py --html --input ${book}.adoc  --output index.html --outdir gh-pages --stylename ${stylename} --stylesdir sass --linkstyle
   - ./docgen/docgen.py --pdf  --input gh-pages/index.html --output ${book}.pdf   --outdir gh-pages
-  - ./docgen/deploy.sh
+  - AUTHOR_NAME="$(git log -1 $TRAVIS_COMMIT --pretty="%aN")"
+  - AUTHOR_EMAIL="$(git log -1 $TRAVIS_COMMIT --pretty="%aE")"
+  - cd gh-pages; git config user.name "traviscibot"; git config user.email "deploy@travis-ci.org"
+  - git add .; git commit --author="${AUTHOR_NAME} <${AUTHOR_EMAIL}>" -m "Deploy ${TRAVIS_COMMIT_RANGE} to github pages"
+  - git push --quiet "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}" gh-pages > /dev/null 2>&1
+  - cd ..
