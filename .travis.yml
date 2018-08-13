@@ -11,12 +11,4 @@ before_install:
 script:
   - ./docgen/docgen.py --html --input ${book}.adoc  --output index.html --outdir gh-pages --stylename ${stylename} --stylesdir sass --linkstyle
   - ./docgen/docgen.py --pdf  --input gh-pages/index.html --output ${book}.pdf   --outdir gh-pages
-
-before_deploy:
-  - export AUTHOR_NAME="$(git log -1 $TRAVIS_COMMIT --pretty="%aN")"
-  - export AUTHOR_EMAIL="$(git log -1 $TRAVIS_COMMIT --pretty="%aE")"
-  - export COMMITTER_NAME="$(git log -1 $TRAVIS_COMMIT --pretty="%cN")"
-  - export COMMITTER_EMAIL="$(git log -1 $TRAVIS_COMMIT --pretty="%cE")"
-
-deploy:
   - ./docgen/deploy.sh
