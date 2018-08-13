@@ -1,11 +1,12 @@
 sudo: required
 
 before_install:
-  - ./setup.sh sass
+  - git clone https://github.com/wiztigers/docgen.git docgen
+  - ./docgen/setup.sh sass
 
 script:
-  - ./docgen.py --html --input book.adoc  --output index.html --outdir gh-pages --stylesheet SR54 --stylesdir sass --linkstyle
-  - ./docgen.py --pdf  --input index.html --output book.pdf   --outdir gh-pages
+  - ./docgen/docgen.py --html --input book.adoc  --output index.html --outdir gh-pages --stylesheet SR54 --stylesdir sass --linkstyle
+  - ./docgen/docgen.py --pdf  --input index.html --output book.pdf   --outdir gh-pages
 
 # https://docs.travis-ci.com/user/deployment/pages/
 deploy:
