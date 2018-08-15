@@ -11,6 +11,7 @@ before_install:
 script:
   - ./docgen/docgen.py --html --input ${book}.adoc  --output index.html --outdir gh-pages --stylename ${stylename} --stylesdir sass --linkstyle
   - ./docgen/docgen.py --pdf  --input gh-pages/index.html --output ${book}.pdf   --outdir gh-pages
+  - cp -r www/* gh-pages
 
 deploy:
   provider: pages
