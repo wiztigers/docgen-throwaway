@@ -1,5 +1,9 @@
 sudo: required
 
+branches:
+  except:
+  - gh-pages
+
 env:
   - book="book" stylename="SR54"
 
