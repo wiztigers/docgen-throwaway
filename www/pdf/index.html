@@ -1,11 +1,6 @@
 ---
+title: "My Super Book"
+layout: pdf
 ---
-<!DOCTYPE html>
-<meta charset="utf-8">
-<title>Redirecting...</title>
-{% assign redirect_url = "/book.pdf" | prepend: site.baseurl | prepend: site.url %}
-<link rel="canonical" href="{{ redirect_url }}">
-<meta http-equiv="refresh" content="0; url={{ redirect_url }}">
-<h1>Redirecting...</h1>
-<a href="{{ redirect_url }}">Click here if you are not redirected.</a>
-<script>location="{{ redirect_url }}"</script>
+
+<iframe src="https://wiztigers.github.io/docgen-throwaway/book.pdf" width="100%" height="100%"></iframe>
