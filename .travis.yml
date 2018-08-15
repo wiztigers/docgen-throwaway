@@ -1,9 +1,5 @@
 sudo: required
 
-branches:
-  only:
-  - master
-
 env:
   - book="book" stylename="SR54"
 
