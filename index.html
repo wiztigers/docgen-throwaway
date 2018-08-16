@@ -8,8 +8,8 @@
 <script>
   var lang = navigator.language || navigator.userLanguage;
   if (lang.indexOf('fr') == 0)
-       window.location = {% assign new_redirect_fr = site.url | append: '/fr/' %};
-  else window.location = {% assign new_redirect_en = site.url | append: '/en/' %};
+       window.location = './fr/';
+  else window.location = './en/';
 </script>
 </body>
 </html>
