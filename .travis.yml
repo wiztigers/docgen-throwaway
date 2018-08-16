@@ -11,13 +11,10 @@ before_install:
   - git clone https://github.com/wiztigers/docgen.git docgen
   - chmod +x docgen/setup.sh docgen/docgen.py
   - ./docgen/setup.sh sass ${stylename}
-  - gem install jekyll-multiple-languages-plugin #i18n
 
 script:
-  - ./docgen/docgen.py --html --input i18n/en/${book}.adoc  --output index.html --outdir gh-pages/_i18n/en --stylename ${stylename} --stylesdir sass --linkstyle
-  - ./docgen/docgen.py --html --input i18n/fr/${book}.adoc  --output index.html --outdir gh-pages/_i18n/fr --stylename ${stylename} --stylesdir sass --linkstyle
-  - ./docgen/docgen.py --pdf  --input gh-pages/_i18n/en/index.html --output ${book}.pdf   --outdir gh-pages/_i18n/en
-  - ./docgen/docgen.py --pdf  --input gh-pages/_i18n/fr/index.html --output ${book}.pdf   --outdir gh-pages/_i18n/fr
+  - ./docgen/docgen.py --html --input ${book}.adoc  --output index.html --outdir gh-pages --stylename ${stylename} --stylesdir sass --linkstyle
+  - ./docgen/docgen.py --pdf  --input gh-pages/index.html --output ${book}.pdf   --outdir gh-pages
   - cp -r www/* gh-pages
 
 deploy:

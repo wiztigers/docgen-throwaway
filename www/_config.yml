@@ -1,4 +1,0 @@
-gems:
- - jekyll-multiple-languages-plugin
-
-languages: ['fr', 'en']
