@@ -13,8 +13,10 @@ before_install:
   - ./docgen/setup.sh sass ${stylename}
 
 script:
-  - ./docgen/docgen.py --html --input ${book}.adoc  --output index.html --outdir gh-pages --stylename ${stylename} --stylesdir sass --linkstyle
-  - ./docgen/docgen.py --pdf  --input gh-pages/index.html --output ${book}.pdf   --outdir gh-pages
+  - ./docgen/docgen.py --html --input i18n/en/${book}.adoc  --output index.html --outdir gh-pages/en --stylename ${stylename} --stylesdir sass --linkstyle
+  - ./docgen/docgen.py --html --input i18n/fr/${book}.adoc  --output index.html --outdir gh-pages/fr --stylename ${stylename} --stylesdir sass --linkstyle
+  - ./docgen/docgen.py --pdf  --input gh-pages/en/index.html --output ${book}.pdf   --outdir gh-pages/en
+  - ./docgen/docgen.py --pdf  --input gh-pages/fr/index.html --output ${book}.pdf   --outdir gh-pages/fr
   - cp -r www/* gh-pages
 
 deploy:
