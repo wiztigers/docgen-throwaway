@@ -6,7 +6,7 @@
 <title>Redirecting...</title>
 {% assign language = navigator.language || navigator.userLanguage %}
 {% if language contains 'fr' %}{% assign location = '/fr/' %}{% else %}{% assign location = '/en/' %}{% endif %}
-{% assign redirect_url = {{ location }} | prepend: site.baseurl | prepend: site.url %}
+{% assign redirect_url = location | prepend: site.baseurl | prepend: site.url %}
 <link rel="canonical" href="{{ redirect_url }}">
 <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
 <h1>Redirecting to {{ location }}::{{ redirect_url }}...</h1>
