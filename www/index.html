@@ -4,28 +4,38 @@
 <html lang='en'>
 <head>
   <meta charset="utf-8">
-{% assign language = navigator.language || navigator.userLanguage %}
-{% if language contains 'fr' %}{% assign location = '/fr/' %}{% else %}{% assign location = '/en/' %}{% endif %}
-{% assign redirect_url = location | prepend: site.baseurl | prepend: site.url %}
-  <!-- https://www.w3.org/TR/WCAG20-TECHS/H76.html -->
-  <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
-  <link rel="canonical" href="{{ redirect_url }}">
-  <title>Redirecting "{{ language }}"::{{ navigator.language }}::{{ navigator.userLanguage }}...</title>
+  <meta id='redirect_meta' http-equiv="refresh" content="0; url=./en/">
+  <link id='redirect_link' rel="canonical" href="./en/">
+  <script>
+  var current_folder = window.location.pathname.replace(/[\\\/][^\\\/]*$/, '');
+  // the previous affectation with the eye-bleeding regex can be read as:
+  // current_folder = pathname.substring(0, pathname.lastIndexOf('/'));
+  // the regex method is less readable, but works with IE<9
+
+  var redirect_url = window.location.hostname + current_folder;
+  var language = navigator.language || navigator.userLanguage;
+  if (language.indexOf('fr') == 0)
+       redirect_url += '/fr/';
+  else redirect_url += '/en/'; // default language
+
+  // we use <meta http-equive="refresh"> for redirection,
+  // because it seems to be the least intrusive way of doing it.
+  // @see https://www.w3.org/TR/WCAG20-TECHS/H76.html
+  document.getElementById('redirect_meta').content='0; url='+redirect_url;
+  document.getElementById('redirect_link').href=redirect_url;
+  // a more "brutal" way of redirecting would be something like this:
+  // window.location = redirect_url;
+  </script>
+  <title>Redirecting...</title>
 </head>
 <body>
-  <h1>Redirecting to {{ redirect_url }}...</h1>
-  <a href="{{ redirect_url }}">Click here if you are not redirected.</a>
+  <h1 id='redirect_header'>Redirecting...</h1>
+  <a  id='redirect_fallback' href="./en/">Click here if you are not redirected.</a>
 
-<!-- Uncomment this if you have to be more brutal: -->
-  <!--script>location="{{ redirect_url }}"</script-->
-
-<!-- Pure-JS alternative to Jekyll + Liquid + http-equiv=refresh stuff: -->
-  <!--script>
-  var lang = navigator.language || navigator.userLanguage;
-  if (lang.indexOf('fr') == 0)
-       window.location = './fr/';
-  else window.location = './en/';
-  </script-->
+  <script>
+  document.getElementById('redirect_header').innerHTML="Redirecting to "+redirect_url+"...";
+  document.getElementById('redirect_fallback').href=redirect_url;
+  </script>
 
 </body>
 </html>
