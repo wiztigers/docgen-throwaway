@@ -1,5 +1,19 @@
+---
+---
 <!DOCTYPE html>
-<html lang="en">
+
+<meta charset="utf-8">
+<title>Redirecting...</title>
+{% assign language = navigator.language || navigator.userLanguage %}
+{% if language contains 'fr' %}{{% assign location = '/fr/' %}}{% else %}{{% assign location = '/en/' %}}{% endif %}
+{% assign redirect_url = {{ location }} | prepend: site.baseurl | prepend: site.url %}
+<link rel="canonical" href="{{ redirect_url }}">
+<meta http-equiv="refresh" content="0; url={{ redirect_url }}">
+<h1>Redirecting to {{ location }}::{{ redirect_url }}...</h1>
+<a href="{{ redirect_url }}">Click here if you are not redirected.</a>
+<script>location="{{ redirect_url }}"</script>
+
+<!--html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Amazing Book</title>
@@ -12,4 +26,4 @@
   else window.location = './en/';
 </script>
 </body>
-</html>
+</html-->
