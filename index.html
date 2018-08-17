@@ -7,6 +7,7 @@
 {% assign language = navigator.language || navigator.userLanguage %}
 {% if language contains 'fr' %}{% assign location = '/fr/' %}{% else %}{% assign location = '/en/' %}{% endif %}
 {% assign redirect_url = location | prepend: site.baseurl | prepend: site.url %}
+  <!-- https://www.w3.org/TR/WCAG20-TECHS/H76.html -->
   <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
   <link rel="canonical" href="{{ redirect_url }}">
   <title>Redirecting...</title>
@@ -14,12 +15,17 @@
 <body>
   <h1>Redirecting to {{ redirect_url }}...</h1>
   <a href="{{ redirect_url }}">Click here if you are not redirected.</a>
-<!-- Pure-JS alternative to Jekyll/Liquid stuff: -->
-<!--script>
+
+<!-- Uncomment this if you have to be more brutal: -->
+  <!--script>location="{{ redirect_url }}"</script-->
+
+<!-- Pure-JS alternative to Jekyll + Liquid + http-equiv=refresh stuff: -->
+  <!--script>
   var lang = navigator.language || navigator.userLanguage;
   if (lang.indexOf('fr') == 0)
        window.location = './fr/';
   else window.location = './en/';
-</script-->
+  </script-->
+
 </body>
 </html>
