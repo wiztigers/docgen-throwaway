@@ -1,29 +1,25 @@
 ---
 ---
 <!DOCTYPE html>
-
-<meta charset="utf-8">
-<title>Redirecting...</title>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
 {% assign language = navigator.language || navigator.userLanguage %}
 {% if language contains 'fr' %}{% assign location = '/fr/' %}{% else %}{% assign location = '/en/' %}{% endif %}
 {% assign redirect_url = location | prepend: site.baseurl | prepend: site.url %}
-<link rel="canonical" href="{{ redirect_url }}">
-<meta http-equiv="refresh" content="0; url={{ redirect_url }}">
-<h1>Redirecting to {{ location }}::{{ redirect_url }}...</h1>
-<a href="{{ redirect_url }}">Click here if you are not redirected.</a>
-<script>location="{{ redirect_url }}"</script>
-
-<!--html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Amazing Book</title>
+  <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
+  <link rel="canonical" href="{{ redirect_url }}">
+  <title>Redirecting...</title>
 </head>
 <body>
-<script>
+  <h1>Redirecting to {{ redirect_url }}...</h1>
+  <a href="{{ redirect_url }}">Click here if you are not redirected.</a>
+<!-- Pure-JS alternative to Jekyll/Liquid stuff: -->
+<!--script>
   var lang = navigator.language || navigator.userLanguage;
   if (lang.indexOf('fr') == 0)
        window.location = './fr/';
   else window.location = './en/';
-</script>
+</script-->
 </body>
-</html-->
+</html>
