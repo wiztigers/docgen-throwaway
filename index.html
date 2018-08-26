@@ -12,7 +12,7 @@
   // current_folder = pathname.substring(0, pathname.lastIndexOf('/'));
   // the regex method is less readable, but works with IE<9
 
-  var redirect_url = window.location.hostname + current_folder;
+  var redirect_url = window.location.protocol + '//' + window.location.hostname + current_folder;
   var language = navigator.language || navigator.userLanguage;
   if (language.indexOf('fr') == 0)
        redirect_url += '/fr/';
@@ -33,13 +33,8 @@
   <a  id='redirect_fallback' href="./en/">Click here if you are not redirected.</a>
 
   <script>
-console.log('url1:"'+redirect_url+'"');
   document.getElementById('redirect_header').innerHTML="Redirecting to "+redirect_url+"...";
-console.log('url2:"'+redirect_url+'"');
-console.log('ref1:"'+document.getElementById('redirect_fallback').href+'"');
   document.getElementById('redirect_fallback').href=redirect_url;
-console.log('url3:"'+redirect_url+'"');
-console.log('ref2:"'+document.getElementById('redirect_fallback').href+'"');
   </script>
 
 </body>
