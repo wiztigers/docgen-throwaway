@@ -1,4 +1,4 @@
 image::https://travis-ci.org/wiztigers/docgen-throwaway.svg?branch=master[link=https://travis-ci.org/wiztigers/docgen-throwaway]
 
-Read this online: image:https://raw.githubusercontent.com/wiztigers/docgen-throwaway/gh-pages/resources/3rd/HTML5%20Logo.svg[View HTML,32,32,link=https://wiztigers.github.io/docgen-throwaway/,title="Official W3C icon&#013;&#010;Licensed under CC 3.0 BY"]
-image:https://raw.githubusercontent.com/wiztigers/docgen-throwaway/gh-pages/resources/3rd/PDF%20Logo.svg[View PDF,32,32,link=https://wiztigers.github.io/docgen-throwaway/pdf/,title="Icon made by Smashicons from www.flaticon.com&#013;&#010;Licensed under CC 3.0 BY"]
+Read this online: image:https://cdn.rawgit.com/wiztigers/docgen-throwaway/gh-pages/resources/3rd/HTML5%20Logo.svg[View HTML,32,32,link=https://wiztigers.github.io/docgen-throwaway/,title="Official W3C icon&#013;&#010;Licensed under CC 3.0 BY"]
+image:https://cdn.rawgit.com/wiztigers/docgen-throwaway/gh-pages/resources/3rd/PDF%20Logo.svg[View PDF,32,32,link=https://wiztigers.github.io/docgen-throwaway/pdf/,title="Icon made by Smashicons from www.flaticon.com&#013;&#010;Licensed under CC 3.0 BY"]
