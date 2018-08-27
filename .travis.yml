@@ -17,7 +17,7 @@ script:
   - ./docgen/docgen.py -v --html --input i18n/fr/${book}.adoc  --output index.html --outdir gh-pages/fr --stylename ${stylename} --stylesdir sass --linkstyle
   - ./docgen/docgen.py -v --pdf  --input gh-pages/en/index.html --output ${book}.pdf   --outdir gh-pages/en
   - ./docgen/docgen.py -v --pdf  --input gh-pages/fr/index.html --output ${book}.pdf   --outdir gh-pages/fr
-  - cp ./docgen/www/* gh-pages/
+  - cp -R ./docgen/www/* gh-pages/
 
 deploy:
   provider: pages
